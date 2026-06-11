@@ -194,6 +194,30 @@
         }
         .hero__stat-label { font-size: 0.8rem; color: var(--text-muted); }
 
+        .hero__cta-wrap { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+        .hero__cta {
+            display: inline-block; padding: 12px 28px;
+            border-radius: 28px; font-weight: 600; font-size: 0.95rem;
+            text-decoration: none; cursor: pointer; transition: var(--transition);
+            border: none; font-family: inherit;
+        }
+        .hero__cta--agent {
+            background: linear-gradient(135deg, var(--accent-purple), #e040fb);
+            color: #fff; box-shadow: 0 4px 24px rgba(179, 136, 255, 0.3);
+        }
+        .hero__cta--agent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 32px rgba(179, 136, 255, 0.45);
+        }
+        .hero__cta--contact {
+            background: transparent; color: var(--text-primary);
+            border: 1.5px solid var(--border);
+        }
+        .hero__cta--contact:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
         /* ========== Section Titles ========== */
         .section-title {
             text-align: center; margin-bottom: 56px;
@@ -421,6 +445,10 @@
                     <div><div class="hero__stat-value">500+</div><div class="hero__stat-label">服务次数</div></div>
                     <div><div class="hero__stat-value">300+</div><div class="hero__stat-label">满意同学</div></div>
                     <div><div class="hero__stat-value">3年</div><div class="hero__stat-label">校园经验</div></div>
+                </div>
+                <div class="hero__cta-wrap fade-in fade-in--4">
+                    <a href="agent.html" class="hero__cta hero__cta--agent">🚀 成为代理</a>
+                    <a href="#contact" class="hero__cta hero__cta--contact">联系我</a>
                 </div>
             </div>
         </section>
