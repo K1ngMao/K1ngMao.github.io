@@ -395,6 +395,12 @@
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* ========== Responsive ========== */
+        .nav__back-mobile {
+            display: none;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500;
+        }
+
         @media (max-width: 768px) {
             .hero { flex-direction: column; text-align: center; padding-top: 120px; gap: 32px; }
             .hero__stats { justify-content: center; }
@@ -403,6 +409,7 @@
             .services__grid { grid-template-columns: 1fr; }
             .contact__grid { grid-template-columns: 1fr; }
             .nav__links { display: none; }
+            .nav__back-mobile { display: flex; align-items: center; gap: 4px; }
         }
     </style>
 </head>
@@ -417,7 +424,8 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <span class="nav__logo">&lt;K1ngMao /&gt;</span>
+            <a href="index.html" style="text-decoration:none;"><span class="nav__logo">&lt;K1ngMao /&gt;</span></a>
+            <a href="index.html" class="nav__back-mobile">🏠 首页</a>
             <ul class="nav__links">
                 <li><a href="index.html">🏠 首页</a></li>
                 <li><a href="#about">关于我</a></li>
