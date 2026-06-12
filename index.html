@@ -3,460 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>K1ngMao | 大学生线上兼职项目</title>
-    <meta name="description" content="靠谱的大学生线上兼职项目——校园跑、网课代刷、签到打卡，零门槛加入代理，轻松赚钱。">
-    <meta name="keywords" content="线上兼职,大学生兼职,校园跑,网课代刷,代理,赚钱,K1ngMao">
+    <title>K1ngMao | 大学生线上兼职</title>
+    <meta name="description" content="靠谱的大学生线上兼职——校园跑、网课代刷、签到打卡，零门槛加入代理。">
+    <meta name="keywords" content="线上兼职,大学生兼职,校园跑,网课代刷,代理,K1ngMao">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://K1ngMao.github.io">
-    <meta property="og:title" content="K1ngMao | 大学生线上兼职项目">
-    <meta property="og:description" content="靠谱的大学生线上兼职项目——校园跑、网课代刷、签到打卡，零门槛加入代理，轻松赚钱。">
+    <meta property="og:title" content="K1ngMao | 大学生线上兼职">
+    <meta property="og:description" content="靠谱的大学生线上兼职——校园跑、网课代刷、签到打卡，零门槛加入代理。">
     <meta property="og:image" content="https://cdn.jsdelivr.net/gh/K1ngMao/K1ngMao.github.io@main/share-card.jpg">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="316">
     <meta property="og:site_name" content="K1ngMao">
     <meta property="og:locale" content="zh_CN">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="K1ngMao | 大学生线上兼职项目">
-    <meta name="twitter:description" content="靠谱的大学生线上兼职项目——校园跑、网课代刷、签到打卡，零门槛加入代理，轻松赚钱。">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/K1ngMao/K1ngMao.github.io/main/share-card.jpg">
+    <meta name="twitter:title" content="K1ngMao | 大学生线上兼职">
+    <meta name="twitter:description" content="靠谱的大学生线上兼职——校园跑、网课代刷、签到打卡，零门槛加入代理。">
+    <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/K1ngMao/K1ngMao.github.io@main/share-card.jpg">
 
-    <!-- iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="K1ngMao">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg-primary: #0a0a14;
-            --bg-card: #16162a;
-            --text-primary: #e8e8f0;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6a6a82;
-            --accent-cyan: #00e5ff;
-            --accent-blue: #448aff;
-            --accent-purple: #b388ff;
-            --accent-pink: #e040fb;
-            --accent-green: #69f0ae;
-            --accent-gold: #ffd740;
-            --border: #1e1e38;
-            --radius: 20px;
-            --radius-sm: 12px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-mono: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+            --page-bg: #F5F6F7;
+            --card-bg: #FFFFFF;
+            --green: #07C160;
+            --green-dark: #06AD56;
+            --blue: #1989FA;
+            --orange: #FF976A;
+            --text-primary: #323233;
+            --text-secondary: #969799;
+            --text-muted: #C8C9CC;
+            --border: #EBEDF0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-hover: 0 2px 8px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --radius-lg: 12px;
         }
 
-        html { scroll-behavior: smooth; }
-
+        html { -webkit-overflow-scrolling: touch; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+            background: var(--page-bg); color: var(--text-primary);
+            line-height: 1.6; font-size: 15px;
             -webkit-font-smoothing: antialiased;
             -webkit-tap-highlight-color: transparent;
+            min-height: 100vh;
         }
 
-        /* Background */
-        .bg-grid {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse 70% 70% at 50% 30%, black 30%, transparent 70%);
-        }
-        .bg-glow {
-            position: fixed; z-index: 0; pointer-events: none;
-            width: 500px; height: 500px;
-            border-radius: 50%; filter: blur(180px); opacity: 0.1;
-        }
-        .bg-glow--purple { top: -150px; left: -100px; background: var(--accent-purple); }
-        .bg-glow--cyan { bottom: -150px; right: -100px; background: var(--accent-cyan); }
-        .bg-glow--gold { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--accent-gold); opacity: 0.04; width: 700px; height: 700px; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 16px; }
 
-        .container {
-            position: relative; z-index: 1;
-            max-width: 900px; margin: 0 auto; padding: 0 24px;
+        /* ====== Top Bar ====== */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--card-bg); border-bottom: 0.5px solid var(--border);
+            padding: 12px 16px; text-align: center;
         }
+        .topbar__title { font-size: 17px; font-weight: 600; color: var(--text-primary); }
+        .topbar__sub { font-size: 11px; color: var(--text-muted); }
 
-        /* Nav */
-        .header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 16px 0;
-            background: rgba(10, 10, 20, 0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav {
-            display: flex; align-items: center; justify-content: space-between;
-            max-width: 900px; margin: 0 auto; padding: 0 24px;
-        }
-        .nav__logo {
-            font-size: 1.25rem; font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .nav__links { display: flex; gap: 24px; list-style: none; }
-        .nav__links a {
-            color: var(--text-secondary); text-decoration: none;
-            font-size: 0.85rem; font-weight: 500; transition: var(--transition);
-        }
-        .nav__links a:hover { color: var(--accent-cyan); }
-
-        /* Hero */
+        /* ====== Hero ====== */
         .hero {
-            padding-top: 140px; padding-bottom: 80px; text-align: center;
+            background: var(--card-bg); border-radius: var(--radius-lg);
+            padding: 28px 20px; margin: 16px 0; text-align: center;
+            box-shadow: var(--shadow);
         }
-        .hero__badge {
-            display: inline-block; padding: 6px 18px;
-            border-radius: 20px; font-size: 0.78rem; font-weight: 600;
-            background: rgba(255, 215, 64, 0.1);
-            border: 1px solid rgba(255, 215, 64, 0.25);
-            color: var(--accent-gold);
-            margin-bottom: 24px;
-            font-family: var(--font-mono); letter-spacing: 2px;
+        .hero__icon { font-size: 48px; margin-bottom: 12px; }
+        .hero__title { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+        .hero__title em { color: var(--green); font-style: normal; }
+        .hero__desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
+        .hero__btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block; padding: 10px 24px; border-radius: 6px;
+            font-size: 15px; font-weight: 600; text-decoration: none;
+            transition: all 0.2s; border: none; cursor: pointer;
         }
-        .hero__title {
-            font-size: 3rem; font-weight: 800; letter-spacing: -1px;
-            line-height: 1.2; margin-bottom: 20px;
-        }
-        .hero__title span {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero__subtitle {
-            font-size: 1.15rem; color: var(--text-secondary);
-            max-width: 560px; margin: 0 auto 40px;
-            line-height: 1.8;
-        }
+        .btn--primary { background: var(--green); color: #fff; }
+        .btn--primary:active { background: var(--green-dark); }
+        .btn--outline { background: #fff; color: var(--green); border: 1px solid var(--green); }
+        .btn--outline:active { background: #F0FFF5; }
 
-        /* CTA Buttons */
-        .hero__ctas {
-            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 60px;
+        /* ====== Cell List Nav ====== */
+        .cell-group {
+            background: var(--card-bg); border-radius: var(--radius-lg);
+            overflow: hidden; box-shadow: var(--shadow); margin-bottom: 12px;
         }
-        .hero__cta {
-            display: inline-block; padding: 14px 36px;
-            border-radius: 30px; font-weight: 600; font-size: 1rem;
-            text-decoration: none; cursor: pointer; transition: var(--transition);
-            border: none; font-family: inherit;
+        .cell {
+            display: flex; align-items: center; padding: 16px;
+            text-decoration: none; color: var(--text-primary);
+            border-bottom: 0.5px solid var(--border);
         }
-        .hero__cta--primary {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
-            color: #fff;
-            box-shadow: 0 4px 30px rgba(179, 136, 255, 0.35);
-        }
-        .hero__cta--primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px rgba(179, 136, 255, 0.5);
-        }
-        .hero__cta--outline {
-            background: transparent; color: var(--text-primary);
-            border: 1.5px solid var(--border);
-        }
-        .hero__cta--outline:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-        }
+        .cell:last-child { border-bottom: none; }
+        .cell:active { background: #F7F8FA; }
+        .cell__icon { font-size: 22px; margin-right: 12px; flex-shrink: 0; }
+        .cell__text { flex: 1; }
+        .cell__title { font-size: 15px; font-weight: 500; }
+        .cell__desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+        .cell__arrow { font-size: 14px; color: var(--text-muted); flex-shrink: 0; }
 
-        /* Feature Highlights */
-        .features {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-        }
-        .feature-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius-sm); padding: 28px 20px;
-            text-align: center; transition: var(--transition);
-        }
-        .feature-card:hover {
-            border-color: rgba(255,255,255,0.1);
-            transform: translateY(-3px);
-        }
-        .feature-card__icon { font-size: 2rem; margin-bottom: 12px; }
-        .feature-card__title { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
-        .feature-card__desc { font-size: 0.82rem; color: var(--text-muted); }
-
-        /* Section Title */
-        .section { padding: 80px 0; }
+        /* ====== Feature Cards ====== */
         .section-title {
-            text-align: center; margin-bottom: 48px;
+            font-size: 17px; font-weight: 600; padding: 20px 0 12px;
+            display: flex; align-items: center; gap: 8px;
         }
-        .section-title__label {
-            font-family: var(--font-mono); font-size: 0.8rem;
-            color: var(--accent-cyan); text-transform: uppercase;
-            letter-spacing: 4px; margin-bottom: 8px;
+        .section-title::before {
+            content: ''; width: 3px; height: 16px; border-radius: 2px;
+            background: var(--green); flex-shrink: 0;
         }
-        .section-title__heading { font-size: 1.8rem; font-weight: 700; }
-        .section-title__line {
-            width: 60px; height: 3px;
-            background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
-            margin: 14px auto 0; border-radius: 3px;
+        .feature-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .feature-card {
+            background: var(--card-bg); border-radius: var(--radius);
+            padding: 16px 12px; text-align: center; box-shadow: var(--shadow);
         }
+        .feature-card__icon { font-size: 28px; margin-bottom: 8px; }
+        .feature-card__title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .feature-card__desc { font-size: 11px; color: var(--text-secondary); line-height: 1.5; }
 
-        /* Why Join */
-        .why-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-        }
+        /* ====== Why Join ====== */
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .why-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius-sm); padding: 24px;
-            display: flex; gap: 16px; align-items: flex-start;
-            transition: var(--transition);
+            background: var(--card-bg); border-radius: var(--radius);
+            padding: 14px; box-shadow: var(--shadow);
+            display: flex; gap: 10px; align-items: flex-start;
         }
-        .why-card:hover { border-color: rgba(255,255,255,0.1); }
         .why-card__num {
-            width: 44px; height: 44px; border-radius: 12px;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--green); color: #fff;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; font-weight: 700; flex-shrink: 0;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            font-size: 13px; font-weight: 700; flex-shrink: 0;
         }
-        .why-card__title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
-        .why-card__desc { font-size: 0.82rem; color: var(--text-muted); }
+        .why-card__title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+        .why-card__desc { font-size: 11px; color: var(--text-secondary); line-height: 1.5; }
 
-        /* Big CTA */
-        .big-cta {
-            text-align: center; padding: 72px 40px;
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius); position: relative; overflow: hidden;
+        /* ====== Service Cards ====== */
+        .service-card {
+            background: var(--card-bg); border-radius: var(--radius);
+            padding: 16px; box-shadow: var(--shadow); margin-bottom: 10px;
+            border-left: 3px solid var(--green); display: flex; gap: 12px; align-items: center;
         }
-        .big-cta::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
-        }
-        .big-cta__title { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
-        .big-cta__desc { color: var(--text-secondary); margin-bottom: 28px; }
-        .big-cta__btn {
-            display: inline-block; padding: 16px 48px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
-            color: #fff; border-radius: 30px; font-weight: 700;
-            font-size: 1.1rem; text-decoration: none;
-            box-shadow: 0 4px 30px rgba(179, 136, 255, 0.35);
-            transition: var(--transition);
-        }
-        .big-cta__btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px rgba(179, 136, 255, 0.5);
-        }
+        .service-card--blue { border-left-color: var(--blue); }
+        .service-card--orange { border-left-color: var(--orange); }
+        .service-card__icon { font-size: 32px; flex-shrink: 0; }
+        .service-card__title { font-size: 15px; font-weight: 600; }
+        .service-card__desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
 
-        /* Footer */
-        .footer {
-            text-align: center; padding: 40px 0;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted); font-size: 0.8rem;
+        /* ====== Banner CTA ====== */
+        .banner-cta {
+            background: var(--green); border-radius: var(--radius-lg);
+            padding: 28px 20px; text-align: center; color: #fff; margin: 16px 0 24px;
         }
-        .footer a {
-            color: var(--accent-cyan); text-decoration: none;
+        .banner-cta__title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+        .banner-cta__desc { font-size: 13px; opacity: 0.9; margin-bottom: 16px; line-height: 1.6; }
+        .btn--white {
+            display: inline-block; padding: 10px 28px; border-radius: 6px;
+            background: #fff; color: var(--green); font-size: 15px;
+            font-weight: 600; text-decoration: none;
         }
-        .footer a:hover { text-decoration: underline; }
+        .btn--white:active { background: #F0FFF5; }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0; transform: translateY(30px);
-            animation: fadeInUp 0.7s ease forwards;
-        }
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        .fade-in--1 { animation-delay: 0.1s; }
-        .fade-in--2 { animation-delay: 0.25s; }
-        .fade-in--3 { animation-delay: 0.4s; }
-        .fade-in--4 { animation-delay: 0.55s; }
+        /* ====== Footer ====== */
+        .footer { text-align: center; padding: 20px 0 32px; font-size: 12px; color: var(--text-muted); }
+        .footer a { color: var(--text-secondary); text-decoration: none; margin: 0 6px; }
+        .footer a:active { color: var(--green); }
 
-        .reveal {
-            opacity: 0; transform: translateY(40px);
-            transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* Schema hidden */
+        [itemscope] { display: none; }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero__title { font-size: 2rem; }
-            .features { grid-template-columns: 1fr; }
+        @media (max-width: 400px) {
+            .feature-row { grid-template-columns: 1fr; }
             .why-grid { grid-template-columns: 1fr; }
-            .nav__links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Schema.org 结构化数据 (微信备用) -->
-    <div itemscope itemtype="https://schema.org/WebSite" style="display:none;">
-        <meta itemprop="name" content="K1ngMao | 大学生线上兼职项目">
-        <meta itemprop="description" content="靠谱的大学生线上兼职项目——校园跑、网课代刷、签到打卡，零门槛加入代理，轻松赚钱。">
-        <meta itemprop="image" content="https://raw.githubusercontent.com/K1ngMao/K1ngMao.github.io/main/share-card.jpg">
+    <div itemscope itemtype="https://schema.org/WebSite">
+        <meta itemprop="name" content="K1ngMao | 大学生线上兼职">
+        <meta itemprop="description" content="靠谱的大学生线上兼职——校园跑、网课代刷、签到打卡，零门槛加入代理。">
+        <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/K1ngMao/K1ngMao.github.io@main/share-card.jpg">
         <meta itemprop="url" content="https://K1ngMao.github.io">
     </div>
 
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow--purple"></div>
-    <div class="bg-glow bg-glow--cyan"></div>
-    <div class="bg-glow bg-glow--gold"></div>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="topbar__title">K1ngMao</div>
+        <div class="topbar__sub">大学生线上兼职平台</div>
+    </div>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <span class="nav__logo">&lt;K1ngMao /&gt;</span>
-            <ul class="nav__links">
-                <li><a href="profile.html">了解我</a></li>
-                <li><a href="agent.html">成为代理</a></li>
-                <li><a href="profile.html#contact">联系我</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
 
-    <main class="container">
-
-        <!-- ====== Hero ====== -->
-        <section class="hero">
-            <div class="hero__badge fade-in fade-in--1">💼 ONLINE PART-TIME</div>
-            <h1 class="hero__title fade-in fade-in--2">
-                一个<span>零门槛</span>的<br>大学生线上兼职项目
-            </h1>
-            <p class="hero__subtitle fade-in fade-in--3">
-                无需经验，一部手机就能接单赚钱 💰<br>
-                校园跑、网课代刷、签到打卡——需求量大，客户稳定，佣金秒结。
-            </p>
-            <div class="hero__ctas fade-in fade-in--4">
-                <a href="agent.html" class="hero__cta hero__cta--primary">🚀 成为代理，开始赚钱</a>
-                <a href="profile.html" class="hero__cta hero__cta--outline">👤 了解项目负责人</a>
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero__icon">💼</div>
+            <h1 class="hero__title">一个<em>零门槛</em>的大学生<br>线上兼职项目</h1>
+            <p class="hero__desc">校园跑 · 网课代刷 · 签到打卡<br>一部手机接单赚钱，差价全部归你</p>
+            <div class="hero__btns">
+                <a href="agent.html" class="btn btn--primary">成为代理</a>
+                <a href="profile.html" class="btn btn--outline">了解负责人</a>
             </div>
+        </div>
 
-            <div class="features fade-in fade-in--4">
-                <div class="feature-card">
-                    <div class="feature-card__icon">🆓</div>
-                    <h3 class="feature-card__title">免费加入</h3>
-                    <p class="feature-card__desc">不收代理费，首次充值 ¥10 到你的账户余额，钱在你自己账户里</p>
+        <!-- Cell Nav -->
+        <div class="cell-group">
+            <a href="profile.html" class="cell">
+                <span class="cell__icon">👤</span>
+                <div class="cell__text">
+                    <div class="cell__title">了解项目负责人</div>
+                    <div class="cell__desc">K1ngMao · 大二计算机 · 3年校园服务经验</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">📱</div>
-                    <h3 class="feature-card__title">一部手机就能做</h3>
-                    <p class="feature-card__desc">所有操作线上完成，你只负责接客户，我们来执行</p>
+                <span class="cell__arrow">›</span>
+            </a>
+            <a href="agent.html" class="cell">
+                <span class="cell__icon">🤝</span>
+                <div class="cell__text">
+                    <div class="cell__title">成为代理，开始赚钱</div>
+                    <div class="cell__desc">查看代理价，免费加入，¥10起充</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">💸</div>
-                    <h3 class="feature-card__title">差价全归你</h3>
-                    <p class="feature-card__desc">市场价和代理价之间的差价 100% 进你口袋，上不封顶</p>
+                <span class="cell__arrow">›</span>
+            </a>
+            <a href="profile.html#contact" class="cell">
+                <span class="cell__icon">💬</span>
+                <div class="cell__text">
+                    <div class="cell__title">联系我</div>
+                    <div class="cell__desc">微信 K1ngMao · QQ 1914482394</div>
                 </div>
+                <span class="cell__arrow">›</span>
+            </a>
+        </div>
+
+        <!-- Features -->
+        <div class="section-title">为什么选择我们</div>
+        <div class="feature-row">
+            <div class="feature-card">
+                <div class="feature-card__icon">🆓</div>
+                <div class="feature-card__title">免费加入</div>
+                <div class="feature-card__desc">不收代理费，首次充值¥10到账户余额</div>
             </div>
-        </section>
-
-        <!-- ====== Why Join ====== -->
-        <section class="section">
-            <div class="section-title reveal">
-                <div class="section-title__label">/ Why Join</div>
-                <h2 class="section-title__heading">为什么选择这个项目</h2>
-                <div class="section-title__line"></div>
+            <div class="feature-card">
+                <div class="feature-card__icon">📱</div>
+                <div class="feature-card__title">一部手机就够</div>
+                <div class="feature-card__desc">接单全线上，你收钱我干活</div>
             </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">💸</div>
+                <div class="feature-card__title">差价全归你</div>
+                <div class="feature-card__desc">利润100%进你口袋，上不封顶</div>
+            </div>
+        </div>
 
-            <div class="why-grid">
-                <div class="why-card reveal">
-                    <div class="why-card__num">1</div>
-                    <div>
-                        <h3 class="why-card__title">市场需求大</h3>
-                        <p class="why-card__desc">每个学校都有大量学生需要代跑、代刷课、代签到，客户源源不断。</p>
-                    </div>
-                </div>
-                <div class="why-card reveal">
-                    <div class="why-card__num">2</div>
-                    <div>
-                        <h3 class="why-card__title">代理价够低</h3>
-                        <p class="why-card__desc">云运动 ¥0.17/次，学习通 ¥0.3/科，利润空间大，自由定价。</p>
-                    </div>
-                </div>
-                <div class="why-card reveal">
-                    <div class="why-card__num">3</div>
-                    <div>
-                        <h3 class="why-card__title">操作简单</h3>
-                        <p class="why-card__desc">收到客户订单发给我，剩下的我来完成。你只管收钱，技术活交给我。</p>
-                    </div>
-                </div>
-                <div class="why-card reveal">
-                    <div class="why-card__num">4</div>
-                    <div>
-                        <h3 class="why-card__title">复购率高</h3>
-                        <p class="why-card__desc">校园跑每学期都要，网课每学期都有，客户一次合作长期复购。</p>
-                    </div>
-                </div>
-                <div class="why-card reveal">
-                    <div class="why-card__num">5</div>
-                    <div>
-                        <h3 class="why-card__title">时间自由</h3>
-                        <p class="why-card__desc">不影响上课学习，课余时间发发朋友圈、群里推推就能接单。</p>
-                    </div>
-                </div>
-                <div class="why-card reveal">
-                    <div class="why-card__num">6</div>
-                    <div>
-                        <h3 class="why-card__title">一单一结</h3>
-                        <p class="why-card__desc">客户付款后立即结算，差价秒到你手，不押款不拖欠。</p>
-                    </div>
+        <!-- Services -->
+        <div class="section-title">三大主营业务</div>
+        <div class="service-card">
+            <span class="service-card__icon">🏃</span>
+            <div>
+                <div class="service-card__title">校园跑 · 云运动</div>
+                <div class="service-card__desc">单次1km 代理价¥0.17 · 学期42次稳赚</div>
+            </div>
+        </div>
+        <div class="service-card service-card--blue">
+            <span class="service-card__icon">📖</span>
+            <div>
+                <div class="service-card__title">网课 · 超星学习通</div>
+                <div class="service-card__desc">代理价¥0.3/科 · 市场可卖¥8-12/科</div>
+            </div>
+        </div>
+        <div class="service-card service-card--orange">
+            <span class="service-card__icon">✅</span>
+            <div>
+                <div class="service-card__title">今日校园签到</div>
+                <div class="service-card__desc">每日打卡 · 查寝 · 信息收集，学期卡热卖</div>
+            </div>
+        </div>
+
+        <!-- Why -->
+        <div class="section-title">加入代理的理由</div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-card__num">1</div>
+                <div>
+                    <div class="why-card__title">市场需求大</div>
+                    <div class="why-card__desc">每个学校都有大量需要代跑代刷的客户。</div>
                 </div>
             </div>
-        </section>
-
-        <!-- ====== Services Preview ====== -->
-        <section class="section">
-            <div class="section-title reveal">
-                <div class="section-title__label">/ Services</div>
-                <h2 class="section-title__heading">三大主营业务</h2>
-                <div class="section-title__line"></div>
-            </div>
-
-            <div class="features" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="feature-card reveal">
-                    <div class="feature-card__icon">🏃</div>
-                    <h3 class="feature-card__title">校园跑 · 云运动</h3>
-                    <p class="feature-card__desc">单次1km，代理价¥0.17<br>学期42次，每学期稳赚</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-card__icon">📖</div>
-                    <h3 class="feature-card__title">网课 · 学习通</h3>
-                    <p class="feature-card__desc">学习通代理价¥0.3/科<br>市场可卖¥8-12，利润可观</p>
-                </div>
-                <div class="feature-card reveal">
-                    <div class="feature-card__icon">✅</div>
-                    <h3 class="feature-card__title">今日校园签到</h3>
-                    <p class="feature-card__desc">每日打卡、查寝签到<br>学期卡市场需求旺盛</p>
+            <div class="why-card">
+                <div class="why-card__num">2</div>
+                <div>
+                    <div class="why-card__title">代理价够低</div>
+                    <div class="why-card__desc">云运动¥0.17/次，学习通¥0.3/科，利润空间大。</div>
                 </div>
             </div>
-        </section>
-
-        <!-- ====== Big CTA ====== -->
-        <section class="section">
-            <div class="big-cta reveal">
-                <h3 class="big-cta__title">🚀 准备好开始赚钱了吗？</h3>
-                <p class="big-cta__desc">
-                    免费加入，首次充值 <strong>¥10</strong> 到余额，钱在你账户里随时可用。<br>加微信 <strong>K1ngMao</strong> 备注「代理」<br>
-                    拉你进代理群，今天就能接第一单 ✨
-                </p>
-                <a href="agent.html" class="big-cta__btn">查看代理价格 →</a>
+            <div class="why-card">
+                <div class="why-card__num">3</div>
+                <div>
+                    <div class="why-card__title">操作简单</div>
+                    <div class="why-card__desc">收客户订单发给我，技术活交给我，你只管收钱。</div>
+                </div>
             </div>
-        </section>
+            <div class="why-card">
+                <div class="why-card__num">4</div>
+                <div>
+                    <div class="why-card__title">复购率超高</div>
+                    <div class="why-card__desc">每学期都有新需求，客户一次合作长期复购。</div>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-card__num">5</div>
+                <div>
+                    <div class="why-card__title">时间自由</div>
+                    <div class="why-card__desc">课余时间发朋友圈、群里推推就能接单。</div>
+                </div>
+            </div>
+            <div class="why-card">
+                <div class="why-card__num">6</div>
+                <div>
+                    <div class="why-card__title">秒到账</div>
+                    <div class="why-card__desc">客户付款即结算，差价立刻到，不押款。</div>
+                </div>
+            </div>
+        </div>
 
-    </main>
+        <!-- CTA Banner -->
+        <div class="banner-cta">
+            <div class="banner-cta__title">🚀 准备好开始赚钱了吗？</div>
+            <div class="banner-cta__desc">
+                免费加入，首次充值 ¥10 到余额，钱在你账户里<br>
+                加微信 <strong>K1ngMao</strong> 备注「代理」
+            </div>
+            <a href="agent.html" class="btn--white">查看代理价格</a>
+        </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2026 K1ngMao · <a href="profile.html">了解我</a> · <a href="agent.html">代理合作</a> · 诚信共赢 🤝</p>
-    </footer>
+    </div>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <div class="footer">
+        © 2026 K1ngMao · <a href="profile.html">了解我</a> · <a href="agent.html">代理合作</a>
+    </div>
 
 </body>
 </html>
