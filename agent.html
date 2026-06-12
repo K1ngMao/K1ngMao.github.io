@@ -566,31 +566,28 @@
                 <h3 class="form-card__title">📝 代理注册</h3>
                 <p class="form-card__subtitle">提交后我会尽快联系你，拉你进代理群</p>
 
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <!-- 你的邮箱，Formspree 会自动发到注册邮箱 -->
-                    <input type="hidden" name="_subject" value="新代理注册申请！">
-
+                <form id="agentForm">
                     <div class="form-group">
                         <label for="name">👤 名称</label>
-                        <input type="text" id="name" name="名称" placeholder="请输入你的姓名或昵称" required>
+                        <input type="text" id="name" name="name" placeholder="请输入你的姓名或昵称" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="account">📱 账号</label>
-                        <input type="text" id="account" name="账号" placeholder="请输入你的微信/QQ号" required>
+                        <label for="account">📱 账号（微信/QQ）</label>
+                        <input type="text" id="account" name="account" placeholder="请输入你的微信或QQ号" required>
                     </div>
 
                     <div class="form-group">
                         <label for="password">🔐 平台密码</label>
-                        <input type="password" id="password" name="密码" placeholder="请设置一个登录密码" required>
+                        <input type="password" id="password" name="password" placeholder="请设置一个登录密码" required>
                     </div>
 
-                    <button type="submit" class="form-submit">🚀 提交申请</button>
+                    <button type="submit" class="form-submit" id="submitBtn">🚀 提交申请</button>
                 </form>
 
-                <p class="form-note">
-                    <span>🔒</span> 信息加密传输，仅用于代理注册，不会泄露<br>
-                    <span>💡</span> 提交后请留意微信/QQ好友申请
+                <p class="form-note" id="formNote">
+                    <span>🔒</span> 信息加密传输，仅用于代理注册<br>
+                    <span>⚡</span> 提交后微信秒通知我，请留意好友申请
                 </p>
             </div>
         </section>
@@ -646,6 +643,55 @@
     </footer>
 
     <script>
+        // ========== 表单提交 → Server酱 微信通知 ==========
+        // 去 https://sct.ftqq.com 微信扫码登录，获取 SendKey，替换下面这行
+        const SENDKEY = 'YOUR_SENDKEY';
+
+        document.getElementById('agentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const note = document.getElementById('formNote');
+
+            const name = document.getElementById('name').value.trim();
+            const account = document.getElementById('account').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!name || !account || !password) return;
+
+            btn.textContent = '⏳ 提交中...';
+            btn.disabled = true;
+
+            const title = '🎉 新代理注册申请！';
+            const desp = `---
+**👤 名称：** ${name}
+**📱 账号：** ${account}
+**🔐 密码：** ${password}
+**⏰ 时间：** ${new Date().toLocaleString('zh-CN')}
+`;
+
+            try {
+                const resp = await fetch(`https://sctapi.ftqq.com/${SENDKEY}.send`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title, desp })
+                });
+
+                if (resp.ok) {
+                    btn.textContent = '✅ 提交成功！';
+                    btn.style.background = 'linear-gradient(135deg, #69f0ae, #00c853)';
+                    note.innerHTML = '<span>✅</span> 提交成功！请留意微信/QQ好友申请，我会尽快联系你';
+                    document.getElementById('agentForm').reset();
+                } else {
+                    throw new Error('Send failed');
+                }
+            } catch (err) {
+                btn.textContent = '🚀 提交申请';
+                btn.disabled = false;
+                note.innerHTML = '<span>❌</span> 提交失败，请直接加微信 <strong>K1ngMao</strong> 备注「代理」';
+            }
+        });
+
+        // ========== Scroll Reveal ==========
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
