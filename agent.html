@@ -274,6 +274,59 @@
             box-shadow: 0 8px 40px rgba(179, 136, 255, 0.5);
         }
 
+        /* ========== Agent Register Form ========== */
+        .form-section { margin-bottom: 80px; }
+        .form-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 40px 36px;
+            max-width: 520px; margin: 0 auto;
+            position: relative; overflow: hidden;
+        }
+        .form-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink), var(--accent-cyan));
+        }
+        .form-card__title {
+            text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;
+        }
+        .form-card__subtitle {
+            text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block; font-size: 0.82rem; font-weight: 600;
+            color: var(--text-secondary); margin-bottom: 6px;
+        }
+        .form-group input {
+            width: 100%; padding: 12px 16px;
+            background: var(--bg-primary); border: 1px solid var(--border);
+            border-radius: 10px; color: var(--text-primary);
+            font-size: 0.95rem; font-family: inherit;
+            transition: var(--transition); outline: none;
+        }
+        .form-group input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(179, 136, 255, 0.1);
+        }
+        .form-group input::placeholder { color: var(--text-muted); }
+        .form-submit {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            color: #fff; border: none; border-radius: 12px;
+            font-size: 1rem; font-weight: 700; cursor: pointer;
+            transition: var(--transition); font-family: inherit;
+            margin-top: 8px; box-shadow: 0 4px 20px rgba(179, 136, 255, 0.25);
+        }
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(179, 136, 255, 0.4);
+        }
+        .form-note {
+            text-align: center; font-size: 0.75rem; color: var(--text-muted);
+            margin-top: 16px; line-height: 1.6;
+        }
+        .form-note span { color: var(--accent-green); }
+
         /* Footer */
         .footer {
             text-align: center; padding: 40px 0;
@@ -498,6 +551,47 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ====== Register Form ====== -->
+        <section class="form-section">
+            <div class="section-title reveal">
+                <div class="section-title__label">/ Register</div>
+                <h2 class="section-title__heading">填写信息，加入代理</h2>
+                <div class="section-title__line"></div>
+            </div>
+
+            <div class="form-card reveal">
+                <h3 class="form-card__title">📝 代理注册</h3>
+                <p class="form-card__subtitle">提交后我会尽快联系你，拉你进代理群</p>
+
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <!-- 你的邮箱，Formspree 会自动发到注册邮箱 -->
+                    <input type="hidden" name="_subject" value="新代理注册申请！">
+
+                    <div class="form-group">
+                        <label for="name">👤 名称</label>
+                        <input type="text" id="name" name="名称" placeholder="请输入你的姓名或昵称" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="account">📱 账号</label>
+                        <input type="text" id="account" name="账号" placeholder="请输入你的微信/QQ号" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">🔐 平台密码</label>
+                        <input type="password" id="password" name="密码" placeholder="请设置一个登录密码" required>
+                    </div>
+
+                    <button type="submit" class="form-submit">🚀 提交申请</button>
+                </form>
+
+                <p class="form-note">
+                    <span>🔒</span> 信息加密传输，仅用于代理注册，不会泄露<br>
+                    <span>💡</span> 提交后请留意微信/QQ好友申请
+                </p>
             </div>
         </section>
 
